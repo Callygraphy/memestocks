@@ -11,7 +11,7 @@ app.all('/', function(request, response) {
 			if (imageURL.indexOf(".jpg")!= -1 || imageURL.indexOf(".jpeg")!= -1 ) {
 				titles += "<img src=\"" + reddit.data.children[i].data.url + "\" />";
 			} else if (imageURL.indexOf("qkme.me")!= -1 || imageURL.indexOf("quickmeme")!= -1) {
-				var myRe = /\/([\d\w]{6})(?=[\/\?])/; //finds 6 digit alphanumerical code preceded by a slash and followed by a slash or question mark
+				var myRe = /\/([\d\w]{6})/; //finds 6 digit alphanumerical code preceded by a slash
 				var newURL = myRe.exec(imageURL);
 				if (newURL == null) {
 				    titles += "<p> no" + imageURL + "match</p>";

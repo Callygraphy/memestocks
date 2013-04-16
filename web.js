@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/edition/', function(request, response) {
 	restler.get('http://version1.api.memegenerator.net/Generators_Select_ByPopular?pageIndex=0&pageSize=12&days=7').on('complete', function(reddit) {
-		var advice = "Use <em>" + reddit.result[1].displayName + "</em> with caution."
+		var advice = "Use <strong>" + reddit.result[1].displayName + "</strong> with caution."
 		var memePic = reddit.result[0].imageUrl;
 		var topOfThePops = "";
 		for(var i=0; i<5; i++) {
@@ -26,16 +26,7 @@ app.get('/edition/', function(request, response) {
 });
 
 app.get('/sample/', function(request, response) {
-	restler.get('http://version1.api.memegenerator.net/Generators_Select_ByPopular?pageIndex=0&pageSize=12&days=7').on('complete', function(reddit) {
-		var advice = "Use <em>" + reddit.result[1].displayName + "</em> with caution."
-		var memePic = reddit.result[0].imageUrl;
-		var topOfThePops = "";
-		for(var i=0; i<5; i++) {
-			topOfThePops += "<li>" + reddit.result[i].displayName + "</li>";
-		}
-		response.render('index', { memePic: memePic, topOfThePops: topOfThePops, advice: advice });
-
-	});
+	response.render('sample.ejs');
 });
 
 

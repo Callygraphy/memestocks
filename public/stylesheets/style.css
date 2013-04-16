@@ -2,11 +2,10 @@ body {
   width: 384px;
       padding: 0px;
       margin: 0px;
-      font-family:verdana, sans-serif;
-
 }
 
 img {width: 384px;
+	display:block;
 		}
 
 #content {
@@ -16,11 +15,15 @@ img {width: 384px;
 	margin-top: 0px;
 	margin-bottom: 0px;}
 
-p {margin-top: 10px;}
+p {margin-top: 5px;
+	margin-left: 0px;}
 
 h2 {
+	font-family: helvetica, sans-serif;
 	font-size: 22px;
 	margin: 0px;
+	margin-top: 5px;
 }
 
-ol {margin-top: 5px;}
+ol {margin-top: 5px;
+	margin-bottom: 0px;}

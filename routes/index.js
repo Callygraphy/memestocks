@@ -22,8 +22,8 @@ exports.index = function(request, response) {
 			for(var i=0; i<5; i++) {
 				topOfThePops += "<li>" + reddit.result[i].displayName + "</li>";}
 			
-			//var etag = littleprinter.createEtag(d.toString())
-		 	//response.set('Etag', etag);	 	
+			var etag = littleprinter.createEtag(d.toString())
+		 	response.set('Etag', etag);	 	
 			
 			response.render('index', { memePic: memePic, topOfThePops: topOfThePops, advice: advice });
 		});

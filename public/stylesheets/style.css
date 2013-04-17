@@ -4,27 +4,38 @@ body {
       margin: 0px;
 }
 
-img {width: 384px;
+img { width: 384px;
 	display:block;
 		}
 
 #content {
-	margin-left: 8px;
+	margin-left: 7px;
 	font-family: 'Arial', serif;
-	font-size: 18px;
+	font-size: 16px;
 	margin-top: 0px;
 	margin-bottom: 0px;}
 
 p {margin-top: 5px;
-	margin-left: 0px;}
+	margin-left: 0px;
+	margin-bottom: 2px;
+	}
 
 h2 {
-	font-family: 'Arial Black', sans-serif;
-	font-size: 22px;
+	font-family: 'Times', sans-serif;
+	font-size: 36px;
 	margin: 0px;
-	margin-top: 5px;
-}
+	margin-top: 5px; }
 
 ol {font-family: 'Arial', sans-serif;
 	margin-top: 5px;
-	margin-bottom: 0px;}
+	margin-bottom: 0px;
+	font-size: 22px;}
+
+li { font-weight:bold;  }
+
+.text { font-weight:normal !important; }
+
+.advice {font-size: 22px; 
+		}
+
+strong {font-style: italic;}

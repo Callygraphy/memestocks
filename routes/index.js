@@ -24,8 +24,8 @@ exports.index = function(request, response) {
 			
 			var etag = littleprinter.createEtag(d.toString())
 		 	response.set('Etag', etag);
-		 	if(req.headers && req.headers['if-none-match'] === data.etag) {
-     			return res.send(304);
+		 	if(request.headers && request.headers['if-none-match'] === etag) {
+     			return response.send(304);
     			}	 	
 			
 			response.render('index', { memePic: memePic, topOfThePops: topOfThePops, advice: advice });

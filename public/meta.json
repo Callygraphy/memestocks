@@ -1,0 +1,10 @@
+{
+    "owner_email" : "cally.gatehouse@gmail.com",
+    "publication_api_version":"1.0",
+    "name": "MEME STOCKS",
+    "description": "Which Memes to use When",
+    "delivered_on": "every Monday",
+    "send_timezone_info": false,
+    "send_delivery_count": false,
+    "external_configuration": false
+}

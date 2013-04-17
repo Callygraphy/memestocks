@@ -19,11 +19,12 @@ p {margin-top: 5px;
 	margin-left: 0px;}
 
 h2 {
-	font-family: 'Arial', sans-serif;
+	font-family: 'Times', sans-serif;
 	font-size: 22px;
 	margin: 0px;
 	margin-top: 5px;
 }
 
-ol {margin-top: 5px;
+ol {font-family: 'Quicksand', sans-serif;
+	margin-top: 5px;
 	margin-bottom: 0px;}

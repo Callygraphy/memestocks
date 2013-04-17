@@ -4,36 +4,47 @@
  */
 
 var restler = require('restler');
-var littleprinter = require('littleprinter')
+var littleprinter = require('littleprinter');
+var memeAdvice = require('memeAdvice.js')
 
 exports.index = function(request, response) {
 	var d = new Date();
+	var day = d.getDate();
+	var month = d.getMonth();
+	var year = d.getFullYear();
+	var date = day + "/" + month + "/" + year
 
 	var today = d.getDay();
 
 	if (today == 3) {
 
 		restler.get('http://version1.api.memegenerator.net/Generators_Select_ByPopular?pageIndex=0&pageSize=12&days=7').on('complete', function(reddit) {
-			var advice = "Use <strong>" + reddit.result[1].displayName + "</strong> with caution."
-			
+			//var advice = "Use <em>" + reddit.result[1].displayName + "</em> with caution."
+			var randomNum = memeAdvice.getRandom(0, 4);
+			console.log(randomNum);
+			var randomMeme = "<em>" + reddit.result[randomNum].displayName + "</em>";
+			var advice = memeAdvice.genAdvice(randomMeme);
+
 			var memePic = reddit.result[0].imageUrl;
 			
 			var topOfThePops = ""
 			for(var i=0; i<5; i++) {
-				topOfThePops += "<li>" + reddit.result[i].displayName + "</li>";}
+				topOfThePops += "<li><span class=\"text\">" + reddit.result[i].displayName + "</span></li>";}
+
+			//var etag = littleprinter.createEtag(d.toString())
+		 	//response.set('Etag', etag);
+		 	//if(request.headers && request.headers['if-none-match'] === etag) {
+     		//	return response.send(304);
+    		//	}	 	/
 			
+			response.render('index', { memePic: memePic, topOfThePops: topOfThePops, advice: advice, date: date });
+		});
+	} else { 
 			var etag = littleprinter.createEtag(d.toString())
 		 	response.set('Etag', etag);
 		 	if(request.headers && request.headers['if-none-match'] === etag) {
      			return response.send(304);
     			}	 	
-			
-			response.render('index', { memePic: memePic, topOfThePops: topOfThePops, advice: advice });
-		});
-	} else { 
-			var etag = littleprinter.createEtag(d.toString())
-		 	response.set('Etag', etag);
-		 	
 		 	response.send(204);
 		 }
 };

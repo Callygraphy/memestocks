@@ -2,14 +2,18 @@ doctype 5
 html(lang="en")
   head
     title Meme Stocks
-    link(rel='stylesheet', href='http://memestocks.herokuapp.com/stylesheets/style.css', type='text/css')
+    //link(rel='stylesheet', href='http://memestocks.herokuapp.com/stylesheets/style.css', type='text/css')
+
+    link(rel='stylesheet', href='/stylesheets/style.css', type='text/css')
+
   body
     img(src ='http://memestocks.herokuapp.com/images/logo.png')
     img.dither(src= '#{memePic}')
     #content
-      h2 This week's top performing memes
+      h2 Top Performing Memes 
+      p Week beginning: #{date}
       ol
         !{topOfThePops}
       h2 Meme Tip of The Week
-      p !{advice} 
+      p.advice !{advice} 
     

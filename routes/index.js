@@ -30,11 +30,11 @@ exports.index = function(request, response) {
 			for(var i=0; i<5; i++) {
 				topOfThePops += "<li><span class=\"text\">" + reddit.result[i].displayName + "</span></li>";}
 
-			//var etag = littleprinter.createEtag(d.toString())
-		 	//response.set('Etag', etag);
-		 	//if(request.headers && request.headers['if-none-match'] === etag) {
-     		//	return response.send(304);
-    		//	}	 	/
+			var etag = littleprinter.createEtag(d.toString())
+		 	response.set('Etag', etag);
+		 	if(request.headers && request.headers['if-none-match'] === etag) {
+     			return response.send(304);
+    			}	 	
 			
 			response.render('index', { memePic: memePic, topOfThePops: topOfThePops, advice: advice, date: date });
 		});

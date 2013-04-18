@@ -8,12 +8,13 @@ html(lang="en")
 
   body
     img(src ='http://memestocks.herokuapp.com/images/logo.png')
+    div.location London
+    div.date #{date}
     img.dither(src= '#{memePic}')
     #content
       h2 Top Performing Memes 
-      p Week beginning: #{date}
       ol
         !{topOfThePops}
       h2 Meme Tip of The Week
       p.advice !{advice} 
-    
+    div.masthead

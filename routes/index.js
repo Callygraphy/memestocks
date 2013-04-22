@@ -16,7 +16,7 @@ exports.index = function(request, response) {
 
 	var today = d.getDay();
 
-	if (today == 4) {
+	if (today == 1) {
 
 		restler.get('http://version1.api.memegenerator.net/Generators_Select_ByPopular?pageIndex=0&pageSize=12&days=7').on('complete', function(reddit) {
 			var randomNum = memeAdvice.getRandom(0, 4);

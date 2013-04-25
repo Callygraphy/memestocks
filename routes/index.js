@@ -5,7 +5,7 @@
 
 var restler = require('restler');
 var littleprinter = require('littleprinter');
-var memeAdvice = require('memeAdvice.js')
+//var memeAdvice = require('memeAdvice.js')
 
 exports.index = function(request, response) {
 	var d = new Date();
@@ -19,8 +19,8 @@ exports.index = function(request, response) {
 	if (today == 4) {
 
 		restler.get('http://version1.api.memegenerator.net/Generators_Select_ByPopular?pageIndex=0&pageSize=12&days=7').on('complete', function(reddit) {
-			var randomNum = memeAdvice.getRandom(0, 4);
-			console.log(randomNum);
+			//var randomNum = memeAdvice.getRandom(0, 4);
+			//console.log(randomNum);
 			var randomMeme = "<em>" + reddit.result[2].displayName + "</em>";
 			var advice = "Use "+ randomMeme + "with caution.";
 

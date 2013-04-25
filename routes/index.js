@@ -22,7 +22,7 @@ exports.index = function(request, response) {
 			//var randomNum = memeAdvice.getRandom(0, 4);
 			//console.log(randomNum);
 			var randomMeme = "<em>" + reddit.result[2].displayName + "</em>";
-			var advice = "Use "+ randomMeme + "with caution.";
+			var advice = "Use "+ randomMeme + " with caution.";
 
 			var memePic = reddit.result[0].imageUrl;
 			
@@ -32,7 +32,7 @@ exports.index = function(request, response) {
 
 			var etagSource = d + "edition"
 			var etag = littleprinter.createEtag(etagSource)
-		 	response.set('Etag', etag);
+			response.set('Etag', etag);
 		 	if(request.headers && request.headers['if-none-match'] === etag) {
      			return response.send(304);
     			}	 	

@@ -22,7 +22,7 @@ exports.index = function(request, response) {
 			//var randomNum = memeAdvice.getRandom(0, 4);
 			//console.log(randomNum);
 			if (reddit.result == null) {
-				res.send("<h1>god damn you memes!<h1>")
+				response.send('<h1>god damn you memes!<h1>');
 			} else {
 
 			var randomMeme = "<em>" + reddit.result[2].displayName + "</em>";

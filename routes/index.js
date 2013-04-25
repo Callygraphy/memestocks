@@ -21,8 +21,8 @@ exports.index = function(request, response) {
 		restler.get('http://version1.api.memegenerator.net/Generators_Select_ByPopular?pageIndex=0&pageSize=12&days=7').on('complete', function(reddit) {
 			var randomNum = memeAdvice.getRandom(0, 4);
 			console.log(randomNum);
-			var randomMeme = "<em>" + reddit.result[randomNum].displayName + "</em>";
-			var advice = memeAdvice.genAdvice(randomMeme);
+			var randomMeme = "<em>" + reddit.result[2].displayName + "</em>";
+			var advice = "Use "+ randomMeme + "with caution.";
 
 			var memePic = reddit.result[0].imageUrl;
 			

@@ -33,23 +33,23 @@ exports.index = function(request, response) {
 			for(var i=0; i<5; i++) {
 				topOfThePops += "<li><span class=\"text\">" + reddit.result[i].displayName + "</span></li>";}
 
-			// var etagSource = d + "edition"
-			// var etag = littleprinter.createEtag(etagSource)
-			// response.set('Etag', etag);
-		 // 	if(request.headers && request.headers['if-none-match'] === etag) {
-   //   			return response.send(304);
-   //  			}	 	
+			var etagSource = d + "edition"
+			var etag = littleprinter.createEtag(etagSource)
+			response.set('Etag', etag);
+		 	if(request.headers && request.headers['if-none-match'] === etag) {
+     			return response.send(304);
+    			}	 	
 			
 			response.render('index', { memePic: memePic, topOfThePops: topOfThePops, advice: advice, date: date });
 		}
 		});
 	} else { 
-			// var etagSource = d + "none"
-			// var etag = littleprinter.createEtag(etagSource)
-		 // 	response.set('Etag', etag);
-		 // 	if(request.headers && request.headers['if-none-match'] === etag) {
-   //   			return response.send(304);
-   //  			}	 	
+			var etagSource = d + "none"
+			var etag = littleprinter.createEtag(etagSource)
+		 	response.set('Etag', etag);
+		 	if(request.headers && request.headers['if-none-match'] === etag) {
+     			return response.send(304);
+    			}	 	
 		 	response.send(204);
 		 }
 };
